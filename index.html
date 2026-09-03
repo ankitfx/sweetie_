@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You 🌻</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(180deg, #fff8e7 0%, #ffedc2 40%, #ffe0a3 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #5a4326;
+    position: relative;
+  }
+
+  /* Floating petals */
+  .petal {
+    position: fixed;
+    top: -40px;
+    font-size: 22px;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+  @keyframes fall {
+    to { transform: translateY(110vh) rotate(360deg); }
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 50px 22px 80px;
+    text-align: center;
+  }
+
+  .sun-icon {
+    font-size: 64px;
+    animation: sway 3s ease-in-out infinite;
+    display: inline-block;
+  }
+  @keyframes sway {
+    0%, 100% { transform: rotate(-6deg); }
+    50% { transform: rotate(6deg); }
+  }
+
+  h1 {
+    font-size: 2.3rem;
+    color: #b9770e;
+    margin-top: 10px;
+    text-shadow: 1px 1px 0 #fff3d6;
+  }
+
+  .sub {
+    margin-top: 8px;
+    font-size: 1.1rem;
+    color: #8a6a2f;
+  }
+
+  .card {
+    background: #fffdf6;
+    border: 2px dashed #f2c14e;
+    border-radius: 22px;
+    padding: 28px 24px;
+    margin: 32px 0;
+    box-shadow: 0 10px 25px rgba(190, 140, 30, 0.15);
+  }
+
+  .poem {
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    line-height: 1.9;
+    color: #6b4e1e;
+    white-space: pre-line;
+  }
+
+  .card h2 {
+    color: #d68910;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+  }
+
+  button {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #f7b733, #fc4a1a);
+    color: white;
+    border: none;
+    padding: 14px 26px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(252, 74, 26, 0.3);
+    transition: transform 0.15s ease;
+    margin: 8px;
+  }
+  button:hover { transform: translateY(-3px) scale(1.03); }
+  button:active { transform: scale(0.96); }
+
+  #affirmation {
+    margin-top: 18px;
+    font-size: 1.2rem;
+    min-height: 60px;
+    color: #a05a2c;
+    font-weight: 600;
+  }
+
+  .field {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin: 20px 0;
+    font-size: 34px;
+  }
+  .field span {
+    animation: grow 2.2s ease-in-out infinite;
+  }
+  .field span:nth-child(2) { animation-delay: 0.2s; }
+  .field span:nth-child(3) { animation-delay: 0.4s; }
+  .field span:nth-child(4) { animation-delay: 0.6s; }
+  .field span:nth-child(5) { animation-delay: 0.8s; }
+  @keyframes grow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .hug {
+    font-size: 50px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  .hug.squeeze { transform: scale(1.4) rotate(8deg); }
+
+  #hug-msg {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #b9770e;
+    min-height: 24px;
+  }
+
+  .jar {
+    background: #fff3d6;
+    border-radius: 18px;
+    padding: 18px;
+    margin-top: 16px;
+    text-align: left;
+    font-size: 0.98rem;
+  }
+  .jar-note {
+    background: #fffdf6;
+    border-left: 4px solid #f2c14e;
+    padding: 8px 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    animation: pop 0.4s ease;
+  }
+  @keyframes pop {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  footer {
+    margin-top: 40px;
+    font-size: 0.95rem;
+    color: #a67c3d;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="sun-icon">🌻</div>
+  <h1>sweetie</h1>
+  <p class="sub">yeh chhoti si page bas isliye hai... taaki aaj tere face pe ek smile aa jaaye 💛</p>
+
+  <div class="field">
+    <span>🌻</span><span>🌻</span><span>🌻</span><span>🌻</span><span>🌻</span>
+  </div>
+
+  <div class="card">
+    <h2>Bas dil se, tere liye...</h2>
+    <p class="poem">Chahe aaj kitna bhi kuch ho jaaye
+chahe din kitna bhi heavy lage,
+chahe hum kitni baar argue karein
+ya kabhi ek dusre se gussa ho jaayein..
+
+phir bhi, tu meri dost hai..
+Aur sach bolun? Main bas yahi chahta hoon ki hum hamesha sath rahein
+
+Aaj kya ho raha hai kal kya hoga
+ya do saal baad hum kitne busy ho jaayenge 
+main nahi janta...
+Par itna zaroor jaanta hoon ki
+main tab bhi tere saath rehna chahta hun.
+
+No matter how many arguments hum kar chuke hain
+no matter kitni misunderstandings hui hain
+no matter situation kitni hard ho jaaye...
+main bas yahi chahta hoon ki hum ek dusre ka saath na chhodein..
+
+na tu  perfect nahi hai... aur na  main hu...
+Par friendship perfect hone ke baare mein nahi hoti..
+saath rehne ke baare mein hoti hai...
+
+Kabhi kabhi tu strong ban ke sab handle karti hai,
+par tujhe har baar strong rehne ki zarurat nahi hai.
+Jab bhi thak jaye, jab bhi roona aaye
+when everything feels too much...
+toh bas yaad rakh tu akeli nahi hai..momo hai 
+
+
+
+Kyuki kuch log sirf life ka part nahi hote...
+woh life ko thoda better bana dete hain.
+Aur tu, mere liye unhi logon mein se hai. 🌻💛</p>
+  </div>
+
+  <div class="card">
+    <h2>Jab smile ki zarurat ho...</h2>
+    <button onclick="showAffirmation()">🌼 Mujhe ek smile de</button>
+    <div id="affirmation"></div>
+  </div>
+
+  <div class="card">
+    <h2>Tere liye ek tight hug</h2>
+    <div class="hug" id="hugEmoji" onclick="squeezeHug()">🤗</div>
+    <div id="hug-msg">hug pe tap kar 🤗</div>
+  </div>
+
+  <div class="card">
+    <h2>Reasons kyun tu itni special hai</h2>
+    <button onclick="addNote()">✨ Ek note nikaal</button>
+    <div class="jar" id="jar"></div>
+  </div>
+
+  <footer>bohot saare pyaar aur care ke saath, sirf tere liye 🌻</footer>
+</div>
+
+<script>
+// Falling petals background
+const petals = ['🌻','🌼','✨','💛'];
+for (let i = 0; i < 18; i++) {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  p.textContent = petals[Math.floor(Math.random()*petals.length)];
+  p.style.left = Math.random()*100 + 'vw';
+  p.style.animationDuration = (6 + Math.random()*6) + 's';
+  p.style.animationDelay = (Math.random()*8) + 's';
+  p.style.fontSize = (16 + Math.random()*14) + 'px';
+  document.body.appendChild(p);
+}
+
+const affirmations = [
+  "Tu jitna sochti hai na, usse kahin zyada strong hai. 🌻",
+  "Aaj ka din bura ho sakta hai, par poori story abhi baaki hai. 💛",
+  "Tu rest kar sakti hai, cry kar sakti hai, aur okay na feel karna bhi bilkul okay hai.",
+  "Kahin na kahin koi hai jo genuinely khush hai ki tu exist karti hai. Aur haan, main bhi hoon. 🌼",
+  "Bad day ka matlab yeh nahi ki tu bad person hai. Tu abhi bhi amazing hai.",
+  "Tu apne hardest days survive kar chuki hai. Yeh wala bhi nikal jayega.",
+  "Ek deep breath le... tu matter karti hai, tujhe dekha jaata hai, aur tu akeli nahi hai. ✨",
+  "Yeh feeling poori story nahi hai, bas ek chapter hai.",
+  "Abhi smile karne ka mann nahi hai toh mat kar... par jab karegi na, mast lagegi 😭💛",
+  "Aaj bhi, kal bhi, aur do saal baad bhi — agar life allow kare, main tere saath rehna chahta hoon. 🌻"
+]
+function showAffirmation() {
+  const el = document.getElementById('affirmation');
+  const pick = affirmations[Math.floor(Math.random()*affirmations.length)];
+  el.style.opacity = 0;
+  setTimeout(() => {
+    el.textContent = pick;
+    el.style.transition = 'opacity 0.4s ease';
+    el.style.opacity = 1;
+  }, 150);
+}
+
+function squeezeHug() {
+  const hug = document.getElementById('hugEmoji');
+  hug.classList.add('squeeze');
+  const msgs = [
+    "yeh ek real wala virtual hug tha 🫂",
+    "ek aur le... just in case tujhe zarurat ho 💛",
+    "tu actually kaafi achha kar rahi hai, trust me.",
+    "okay okay, ek last hug... tu deserve karti hai 🌻"
+  ]
+  document.getElementById('hug-msg').textContent = msgs[Math.floor(Math.random()*msgs.length)];
+  setTimeout(() => hug.classList.remove('squeeze'), 300);
+}
+
+const reasons = [
+  "Tu bina try kiye bhi logon ko comfortable feel karwa deti hai.",
+  "Tu chhoti chhoti cheeze notice karti hai, aur honestly yeh kaafi rare hai.",
+  "Hard days mein bhi tu try karti rehti hai — wahi teri real strength hai.",
+  "Teri hasi kisi ka poora mood better kar sakti hai.",
+  "Tu deeply care karti hai, chahe kabhi kabhi woh exhausting kyun na ho.",
+  "Tune logon ki help shayad unse zyada ki hai jitna tujhe khud realise hai.",
+  "Aaj bas exist karna aur survive karna bhi enough hai.",
+  "Teri choice of best friend obviously excellent hai 😉",
+  "Tu woh insaan hai jiske liye check in karna, miss karna aur rukna worth it hai.",
+  "Tere aane se room aur conversations dono thode better ho jaate hain.",
+  "Hum argue karte hain, par iska matlab yeh nahi ki tu mere liye less important ho jaati hai.",
+  "No matter kitni baar misunderstanding ho, main friendship ko fix karne ki koshish karna chahta hoon.",
+  "Tu perfect nahi hai... aur honestly mujhe perfect friend chahiye bhi nahi. Mujhe bas tu chahiye, as my best friend."
+]
+let used = [];
+function addNote() {
+  if (used.length === reasons.length) used = [];
+  let idx;
+  do { idx = Math.floor(Math.random()*reasons.length); } while (used.includes(idx));
+  used.push(idx);
+  const jar = document.getElementById('jar');
+  const note = document.createElement('div');
+  note.className = 'jar-note';
+  note.textContent = '🌻 ' + reasons[idx];
+  jar.prepend(note);
+}
+</script>
+
+</body>
+</html>
